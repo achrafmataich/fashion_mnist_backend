@@ -89,7 +89,7 @@ This ensures your IDE can properly resolve the gRPC classes without additional c
 
 For more information about Spring Boot, visit the official documentation at https://spring.io/projects/spring-boot.
 
-To learn more about gRPC integration with Spring Boot, see the Spring gRPC documentation at https://github.com/grpc-ecosystem/grpc-spring.
+To learn more about gRPC integration with Spring Boot, see the Spring gRPC documentation at https://docs.spring.io/spring-grpc/reference/getting-started.html.
 
 For setting up Tailwind CSS in Spring Boot applications, follow the comprehensive guide at https://wanderlytics.me/posts/3/how-to-add-tailwind-css-in-spring-boot-application.
 
