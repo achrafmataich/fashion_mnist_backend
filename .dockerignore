@@ -1,0 +1,62 @@
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+*.md
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node.js (for Tailwind CSS development)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+.npm
+.eslintcache
+
+# Maven
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Spring Boot
+*.log
+spring.log
+
+# Build artifacts
+*.jar
+*.war
+*.ear
+
+# Test coverage
+coverage/
+*.lcov
+
+# Environment files
+.env*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+
+# Package files
+*.tgz
+*.zip
+
+# Docker files (avoid recursive copying)
+Dockerfile*
+docker-compose*.yml

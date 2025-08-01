@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package ai;
+
+message ImageRequest {
+    string image = 1;
+}
+
+message PredictionReply {
+    string prediction = 1;
+}
+
+service FashionMNISTPrediction {
+    rpc Predict (ImageRequest) returns (PredictionReply);
+}

@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: fashion_mnist_backend
+    grpc:
+        client:
+            channels:
+                local:
+                    address: ${FASHION_MNIST_GRPC_ADDRESS:localhost:5050}

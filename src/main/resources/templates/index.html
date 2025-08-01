@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" th:href="@{/css/style.build.tailwind.css}">
+  <title>Document</title>
+</head>
+
+<body class="min-h-screen flex flex-col items-stretch">
+  <div class="relative my-12 grow flex w-full flex-col items-center sm:mt-24">
+    <a target="_blank" rel="noreferrer" href="https://github.com/achrafmataich"
+      class="mx-auto flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full bg-emerald-100 px-7 py-2 transition-all hover:scale-110 ease-in-out">
+      <p class="text-sm font-semibold text-emerald-800"><i class="fa fa-github"></i> Check my github</p>
+    </a>
+    <h1
+      class="mt-8 max-w-sm bg-gradient-to-br from-gray-500 via-teal-500 to-gray-500 bg-clip-text text-center text-4xl font-extrabold text-transparent sm:max-w-4xl sm:text-6xl">
+      This is a simple Fashion MNIST image classifier using AI 
+    </h1>
+    <span class="mt-8 max-w-lg text-center text-xl leading-relaxed text-gray-800">
+      I made this simple Springboot backend that communicate with an AI model to showcase the ease of integrating AI into user interface 
+    </span>
+   
+    <div class="mt-12">
+      <a th:href="@{/prediction}"
+        class="bg-teal-900 flex flex-row items-center justify-center gap-x-2 rounded-lg border-2 border-teal-500 px-10 py-3 text-teal-200 font-semibold hover:scale-110 transition-transform">
+        Go to Image Prediction page
+      </a>
+    </div>
+  </div>
+  <div th:insert="~{footer}"></div>
+</body>
+
+</html>
