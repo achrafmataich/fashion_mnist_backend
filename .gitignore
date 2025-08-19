@@ -1,6 +1,5 @@
 HELP.md
 target/
-.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -125,5 +124,3 @@ public
 # Temporary folders
 tmp/
 temp/
-
-.mvn/
