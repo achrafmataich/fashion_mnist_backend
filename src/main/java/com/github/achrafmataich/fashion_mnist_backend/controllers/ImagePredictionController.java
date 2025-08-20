@@ -4,6 +4,10 @@
 
 package com.github.achrafmataich.fashion_mnist_backend.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,27 +28,27 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 public class ImagePredictionController {
-    
+
     private final ImagePredictionService imagePredictionService;
 
-    @GetMapping({"/", ""})
+    @GetMapping({ "/", "" })
     public String predictionPage() {
         return "prediction-page";
     }
 
     @PostMapping("/predict")
-    public String predictImage(@RequestParam("imageFile") MultipartFile imageFile, 
-                              Model model,
-                              RedirectAttributes redirectAttributes) {
+    public String predictImage(@RequestParam("imageFile") MultipartFile imageFile,
+            Model model,
+            RedirectAttributes redirectAttributes) {
         try {
             PredictionResultDTO result = imagePredictionService.processImagePrediction(imageFile);
-            
+
             model.addAttribute("prediction", result.getPrediction());
             model.addAttribute("uploadedImage", result.getBase64Image());
             model.addAttribute("fileName", result.getFileName());
-            
+
             return "prediction-page";
-            
+
         } catch (IllegalArgumentException e) {
             log.warn("Validation error: {}", e.getMessage());
             redirectAttributes.addFlashAttribute("error", e.getMessage());
@@ -53,6 +57,20 @@ public class ImagePredictionController {
             log.error("Error during prediction", e);
             redirectAttributes.addFlashAttribute("error", "Error occurred during prediction. Please try again.");
             return "redirect:/prediction";
+        }
+    }
+
+    @PostMapping("/predict/json")
+    public ResponseEntity<Map<String, String>> predictImageJson(@RequestParam("imageFile") MultipartFile imageFile) {
+        try {
+            PredictionResultDTO result = imagePredictionService.processImagePrediction(imageFile);
+
+            return ResponseEntity.ok(Map.of("predicted_class", result.getPrediction()));
+
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(Map.of("error", e.getMessage()));
         }
     }
 }
